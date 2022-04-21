@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"name": "NoRick",
+	"version": "1.0",
+	"description": "uBlock Origin for Rickrolls",
+	"author": "Cuboid Raptor",
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": [
+				"jquery-3.6.0.min.js",
+				"content.js"
+			]
+		}
+	]
+}
