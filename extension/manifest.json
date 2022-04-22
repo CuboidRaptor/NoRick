@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "NoRick",
 	"version": "1.0",
 	"description": "uBlock Origin for Rickrolls",
@@ -10,12 +10,19 @@
 				"<all_urls>"
 			],
 			"js": [
-				"jquery-3.6.0.min.js",
+				"jquery.js",
 				"content.js"
-			]
+			],
+			"run_at": "document_start"
 		}
 	],
-	"browser_action": {
+	"action": {
 		"default_icon": "icon.png"
-	}
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"permissions": [
+		"activeTab"
+	]
 }
