@@ -1,11 +1,13 @@
 // Get blocklist
-let blocklist;
 chrome.runtime.sendMessage({"method": "getlist"}, function(response) {
-    blocklist = response;
+	process(response);
 });
 
-// Get current tab URL
-// Apparently Chrome API is stupid and I have to use background.js. Fine.
-let currentURL = location.href;
+function process(blocklist) {
+	// Get current tab URL
+	var currentURL = location.href;
 
-console.log(currentURL)
+	for (let i = 0; i < blocklist.length; i++) {
+		console.log(blocklist[i]);
+	}
+}

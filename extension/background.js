@@ -1,8 +1,8 @@
 // blocklist ig
-let weblink = "https://raw.githubusercontent.com/CuboidRaptor/NoRick/list/list.txt";
+const weblink = "https://raw.githubusercontent.com/CuboidRaptor/NoRick/list/list.txt";
 
 // um get it
-let blocklist;
+var blocklist;
 fetch(weblink)
 	.then(response => response.text())
 	.then((data) => {
