@@ -10,17 +10,17 @@
 				"<all_urls>"
 			],
 			"js": [
-				"jquery.js",
-				"content.js"
+				"src/jquery.js",
+				"src/content.js"
 			],
 			"run_at": "document_start"
 		}
 	],
 	"action": {
-		"default_icon": "icon.png"
+		"default_icon": "assets/icon.png"
 	},
 	"background": {
-		"service_worker": "background.js"
+		"service_worker": "src/background.js"
 	},
 	"permissions": [
 		"storage"
