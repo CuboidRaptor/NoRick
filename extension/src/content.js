@@ -4,6 +4,7 @@ chrome.runtime.sendMessage({"method": "getlist"}, function(response) {
 });
 
 function sleep(ms) {
+	// Sleep for some time
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
@@ -11,6 +12,7 @@ function process(blocklist) {
 	// Get current tab URL
 	var currentURL = location.href;
 	
+	//debug shtuff
 	console.log("debug: NoRick has been ran")
 	console.log("debug: supposed current URL is " + currentURL)
 	
