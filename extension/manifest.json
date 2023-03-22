@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "NoRick",
 	"version": "1.0",
-	"description": "uBlock Origin for Rickrolls",
+	"description": "uBlock 4 rickrolls",
 	"author": "Cuboid Raptor",
 	"content_scripts": [
 		{

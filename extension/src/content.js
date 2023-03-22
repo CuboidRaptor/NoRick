@@ -8,28 +8,47 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function process(blocklist) {
+function block_rickroll() {
+	// Kill site to prevent rickroll
+	window.stop();
+	console.log("debug: that's a rickroll");
+	alert("ok so um that's a rickroll");
+}
+
+function rsstrip(x) {
+	if (x.slice(-1) == "/") {
+		return x.slice(0, -1);
+	}
+	else
+	{
+		return x
+	}
+}
+
+function process(blocklists) {
 	// Get current tab URL
-	var currentURL = location.href;
+	var currentURL = rsstrip(location.href);
+	
+	var blocklist = blocklists[0]
+	var blocklist_re = blocklists[1]
 	
 	//debug shtuff
-	console.log("debug: NoRick has been ran")
-	console.log("debug: supposed current URL is " + currentURL)
-	
-	//Processing, c'mon youtube couldn't you have used reasonable code
-	if (currentURL.endsWith("&feature=youtu.be")) {
-		currentURL = currentURL.slice(0, -("&feature=youtu.be".length));
-		console.log("debug: youtu.be detected, end processed URL is " + currentURL)
-	}
+	console.log("debug: NoRick has been ran with URL " + currentURL)
 	
 	for (let i = 0; i < blocklist.length; i++) {
-		// Iterate over every rickroll
+		// Iterate over every non-re rickroll
 		if (blocklist[i] == currentURL) {
 			// Is a rickroll, kill the site
-			window.stop();
-			console.log("debug: that's a rickroll");
-			alert("ok so um that's a rickroll");
+			block_rickroll();
 			break;
+		}
+	}
+	
+	for (let i = 0; i < blocklist_re.length; i++) {
+		current_RE = new RegExp(blocklist_re[i]);
+		if (current_RE.test(currentURL)) {
+			// Is a rickroll, kill the site
+			block_rickroll();
 		}
 	}
 }
