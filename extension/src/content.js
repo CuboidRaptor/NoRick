@@ -1,5 +1,6 @@
 // Get blocklist
 chrome.runtime.sendMessage({"method": "getlist"}, function(response) {
+	console.log(response);
 	process(response);
 });
 
@@ -49,6 +50,7 @@ function process(blocklists) {
 		if (current_RE.test(currentURL)) {
 			// Is a rickroll, kill the site
 			block_rickroll();
+			break;
 		}
 	}
 }
