@@ -1,1 +1,1 @@
-https://www\.latlmes\.com/.*
+^https://www\.latlmes\.com
