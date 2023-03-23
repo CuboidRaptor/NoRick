@@ -1,19 +1,13 @@
 // Get blocklist
 chrome.runtime.sendMessage({"method": "getlist"}, function(response) {
-	console.log(response);
 	process(response);
 });
-
-function sleep(ms) {
-	// Sleep for some time
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 function block_rickroll() {
 	// Kill site to prevent rickroll
 	window.stop();
 	console.log("debug: that's a rickroll");
-	alert("ok so um that's a rickroll");
+	alert("ok so um that's a rickroll")
 }
 
 function rsstrip(x) {
@@ -34,7 +28,7 @@ function process(blocklists) {
 	var blocklist_re = blocklists[1]
 	
 	//debug shtuff
-	console.log("debug: NoRick has been ran with URL " + currentURL)
+	console.log("debug: NoRick has been ran with URL " + currentURL);
 	
 	for (let i = 0; i < blocklist.length; i++) {
 		// Iterate over every non-re rickroll
