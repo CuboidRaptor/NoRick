@@ -1,6 +1,7 @@
 // blocklist ig
 const weblink = "https://raw.githubusercontent.com/CuboidRaptor/NoRick/list/list.txt";
 const weblink_re = "https://raw.githubusercontent.com/CuboidRaptor/NoRick/list/list_re.txt";
+var state = true;
 
 // um get it
 var temp = [];
@@ -24,6 +25,23 @@ function done(lists) {
 		if (message.method == "getlist") {
 			// now add listener to return blocklist to content.js
 			sendResponse(lists);
+		}
+		// listener to set state
+		if ((message.method == "getstate")) {
+			// return current state
+			sendResponse(state);
+		}
+		// set state to true/on
+		if ((message.method == "setstate_t")) {
+			// return current state
+			state = true;
+			sendResponse(state);
+		}
+		// set state to false/off
+		if ((message.method == "setstate_f")) {
+			// return current state
+			state = false;
+			sendResponse(state);
 		}
 	});
 }

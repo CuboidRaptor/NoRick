@@ -1,7 +1,16 @@
-// Get blocklist
-chrome.runtime.sendMessage({"method": "getlist"}, function(response) {
-	process(response);
+// Check state
+chrome.runtime.sendMessage({"method": "getstate"}, function(response) {
+	if (response) {
+		getList();
+	}
 });
+
+function getList() {
+	// Get blocklist
+	chrome.runtime.sendMessage({"method": "getlist"}, function(response) {
+		process(response);
+	});
+}
 
 function block_rickroll() {
 	// Kill site to prevent rickroll
