@@ -49,7 +49,21 @@ function iconSet(val) {
 
 function update() {
 	// update blocklist
-	chrome.runtime.sendMessage({"method": "update"}, function(response) {})
+	chrome.runtime.sendMessage({"method": "update"}, function(response) {
+		// add thing that says that list has been updated
+		var node = document.getElementById("updated");
+		node.innerHTML = "";
+		var newNode = document.createElement("p");
+
+		if (response === 0) {
+			newNode.appendChild(document.createTextNode("Updated!"));
+		}
+		else {
+			newNode.appendChild(document.createTextNode("An error occured."));
+		}
+		
+		node.appendChild(newNode);
+	})
 }
 
 function closew() {

@@ -15,8 +15,9 @@ function getList() {
 function block_rickroll() {
 	// Kill site to prevent rickroll
 	window.stop();
+	document.body.innerHTML = "";
 	console.log("debug: that's a rickroll");
-	alert("ok so um that's a rickroll")
+	alert("ok so um that's a rickroll");
 }
 
 function rsstrip(x) {
