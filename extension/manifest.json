@@ -18,7 +18,7 @@
 	],
 	"action": {
 		"icons": {
-			"128": "assets/icon.png"
+			"128": "html/img/icon.png"
 		},
 		"default_title": "NoRick: Banishing A God",
 		"default_popup": "html/popup.html"
@@ -30,6 +30,6 @@
 		"storage"
 	],
 	"icons": {
-		"128": "assets/icon.png"
+		"128": "html/img/icon.png"
 	}
 }

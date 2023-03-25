@@ -12,6 +12,9 @@ function showstate(state) {
 	}
 	
 	node.appendChild(newNode);
+	
+	// show text with the current state
+	iconSet(state);
 }
 
 chrome.runtime.sendMessage({"method": "getstate"}, function(response) {
@@ -31,6 +34,22 @@ function stop() {
 	chrome.runtime.sendMessage({"method": "setstate_f"}, function(response) {
 		showstate(response);
 	});
+}
+
+function iconSet(val) {
+	if (val) {
+		document.getElementById("himg").src = "img/icon.png";
+		chrome.action.setIcon({path: "img/icon.png"});
+	}
+	else {
+		document.getElementById("himg").src = "img/icon2.png";
+		chrome.action.setIcon({path: "img/icon2.png"});
+	}
+}
+
+function update() {
+	// update blocklist
+	chrome.runtime.sendMessage({"method": "update"}, function(response) {})
 }
 
 function closew() {

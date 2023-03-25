@@ -1,5 +1,44 @@
+/* fonts */
+@font-face {
+	font-family: JSSBI;
+	src: url("../fonts/JosefinSans_SemiBoldItalic.ttf");
+}
+
+.jssbi {
+	font-family: "JSSBI";
+	color: #000000;
+}
+
+/* boody */
 body {
 	text-align: center;
-	min-width: 200px;
-	min-height: 200px;
+	min-width: 250px;
+	min-height: 300px;
+	background-image: url("../img/greenTile.png");
+	font-size: 12px;
+}
+
+.bigtext {
+	font-size: 18px;
+}
+
+/* button styling */
+button {
+	background-color: #01FEAA;
+	border-radius: 20px;
+	cursor: pointer;
+	
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+button:hover {
+	background-color: #FDFFAA;
+}
+
+/* image styling yayyyy */
+img {
+	margin-top: 10px;
 }

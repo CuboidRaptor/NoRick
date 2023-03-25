@@ -4,22 +4,25 @@ const weblink_re = "https://raw.githubusercontent.com/CuboidRaptor/NoRick/list/l
 var state = true;
 
 // um get it
-var temp = [];
-function web_get(urls) {
+var lists = [];
+function web_get(urls, run=true) {
 	for (let i = 0; i < urls.length; i++) {
 		fetch(urls[i])
 		.then(function(response) {
 			response.text().then(function(text) {
-				temp.push(text.split("\n"));
+				lists.push(text.split("\n"));
 			})
 		})
 	}
-	done(temp);
+	
+	if (run) {
+		done();
+	}
 }
 
 web_get([weblink, weblink_re]);
 
-function done(lists) {
+function done() {
 	// yay got it
 	chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 		if (message.method == "getlist") {
@@ -42,6 +45,12 @@ function done(lists) {
 			// return current state
 			state = false;
 			sendResponse(state);
+		}
+		// oopdaet leest
+		if ((message.method == "update")) {
+			// redownload and reload list
+			web_get([weblink, weblink_re], run=false);
+			sendResponse(0);
 		}
 	});
 }
