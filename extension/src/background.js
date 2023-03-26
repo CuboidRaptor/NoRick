@@ -6,7 +6,8 @@ var blocklist;
 fetch(weblink)
 	.then(response => response.text())
 	.then((data) => {
-		blocklist = data.split("\n");
+		blocklist = data.split("
+")
 	})
 
 // yay got it
